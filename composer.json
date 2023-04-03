@@ -1,0 +1,23 @@
+{
+    "name": "luckas/digital-cep",
+    "description": "Busca de cep online",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luckas Simplicio",
+            "email": "luckas.ribeiro04@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Search": "src/"
+        },
+        "psr-4": {
+            "Luckas\\DigitalCep\\": "src/"
+        }
+    }
+}
