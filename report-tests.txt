@@ -1,0 +1,4 @@
+Search
+ [x] Get address from zipcode default usage with data set "Endereço Rua Algodoeiro"
+ [x] Get address from zipcode default usage with data set "Endereço Qualquer"
+

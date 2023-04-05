@@ -2,16 +2,30 @@
 
 namespace Luckas\DigitalCep;
 
+use Luckas\DigitalCep\ws\ViaCep;
+
 class Search
 {
-        private $url = "https://viacep.com.br/ws/";
+    public function getAddressFromZipcode(string $zipCode): array
+    {
+        $zipCode = preg_replace("/[^0-9]/im", '', $zipCode);
 
-        public function getAddressFromZipcode(string $zipCode): array
-        {
-            $zipCode = preg_replace("/[^0-9]/im", '', $zipCode);
+        return $this->getFromServer($zipCode);
+    }
 
-            $get = file_get_contents($this->url . $zipCode . "/json");
+    private function getFromServer(string $zipCode): array
+    {
+        $get = new ViaCep();
 
-            return (array) json_decode($get);
+        return $get->get($zipCode);
+    }
+
+    private function processData($data)
+    {
+        foreach ($data as $key => $value) {
+            $data[$key] = trim($value);
         }
+
+        return $data;
+    }
 }
